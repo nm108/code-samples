@@ -65,7 +65,7 @@ public class NumberFactored {
 		for (long i = 2; i <= limit; i++) {
 			if ((val % i) == 0) {
 				final NumberFactored divisor = new NumberFactored(i);
-				divisors.add(divisor);
+				if (divisor.isPrimeNumber()) divisors.add(divisor);
 			}
 		}
 		
