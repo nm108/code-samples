@@ -9,8 +9,8 @@ public class FactorizationTreeEntryPoint {
 		boolean cutBounds = false;
 		// long num = 17;
 
-		NumberFactored n = new NumberFactored(108, useThreshold);
-		// NumberFactored n = new NumberFactored(3*7*11, false);
+//		NumberFactored n = new NumberFactored(108, useThreshold);
+		 NumberFactored n = new NumberFactored(36*36*10, useThreshold);
 		// NumberFactored n1 = new NumberFactored(num, useThreshold);
 		// NumberFactored n = new NumberFactored(n1);
 
