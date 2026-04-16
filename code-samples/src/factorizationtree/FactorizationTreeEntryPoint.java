@@ -1,12 +1,12 @@
-package factorizationtree;
+package src.factorizationtree;
 
 public class FactorizationTreeEntryPoint {
 
 	// entry point.
 	
 	public static void main(String[] args) {
-		boolean useThreshold = true;
-		boolean cutBounds = true;
+		boolean useThreshold = false;
+		boolean cutBounds = false;
 		// long num = 17;
 
 		NumberFactored n = new NumberFactored(108, useThreshold);
