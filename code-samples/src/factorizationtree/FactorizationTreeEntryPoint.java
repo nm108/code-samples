@@ -10,7 +10,7 @@ public class FactorizationTreeEntryPoint {
 		// long num = 17;
 
 //		NumberFactored n = new NumberFactored(108, useThreshold);
-		 NumberFactored n = new NumberFactored(36*36*7, useThreshold);
+		 NumberFactored n = new NumberFactored(36*101, useThreshold);
 		// NumberFactored n1 = new NumberFactored(num, useThreshold);
 		// NumberFactored n = new NumberFactored(n1);
 
