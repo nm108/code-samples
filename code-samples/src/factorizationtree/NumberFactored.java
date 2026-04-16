@@ -1,4 +1,4 @@
-package factorizationtree;
+package src.factorizationtree;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -60,16 +60,17 @@ public class NumberFactored {
 			throw new IllegalArgumentException();
 		}
 
-		divisors.add(this);
-
 		final long limit = useThreshold ? (long) Math.floor(Math.sqrt(val)) : val;
 
 		for (long i = 2; i <= limit; i++) {
 			if ((val % i) == 0) {
-				final NumberFactored divisor = new NumberFactored(val / i);
+				final NumberFactored divisor = new NumberFactored(i);
 				divisors.add(divisor);
 			}
 		}
+		
+		if (divisors.isEmpty()) { divisors.add(this); };
+	
 	}
 
 	public long getVal() {
@@ -78,7 +79,12 @@ public class NumberFactored {
 
 
 	public boolean isPrimeNumber() {
-		return divisors.size() == 1;
+		
+		for (NumberFactored divisor : divisors) {
+			
+			if (divisor.getVal() != 1 && divisor.getVal() != getVal() ) return false;
+		}
+		return true;
 	}
 	
 	public int getDivisorsAmount() {
@@ -179,12 +185,12 @@ public class NumberFactored {
 			
 			if (isPrimeNumber()) {
 				result.append(getIndentedNumberToFactorAsStringBuilder(val, indent));
-				result.append(" is prime number;");
+				result.append(" is a prime number;");
 				result.append("\n");
 				break;
 			}
 
-			if (divisor.equals(this)) {
+			if (divisor.getVal() == 1 || divisor.getVal() == val) {
 				continue;
 			}
 
@@ -196,7 +202,7 @@ public class NumberFactored {
 			result.append(";\n");
 			
 			
-			result.append(divisor.getTreeAsStringBuilder(indent + 1));
+			result.append(new NumberFactored(val/divisor.getVal()).getTreeAsStringBuilder(indent+1));
 		}
 		return result;
 	}
